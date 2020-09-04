@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Shot _shot;
     [SerializeField] private float _helth;
     [SerializeField] private float _speed;
     [SerializeField] private float _attackSpeed;
@@ -13,7 +14,6 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidbody;
     private PlayerAnimatorController _playerAnimator;
     private AimCursor _aim;
-    private Shot _shot;
     private bool _isCanAttack = true;
     private int _countPointKill;
 
@@ -29,11 +29,10 @@ public class Player : MonoBehaviour
         if (_damage < 0)
             _damage = 0;
     }
-
+    
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _shot = GetComponentInChildren<Shot>();
         _aim = FindObjectOfType<AimCursor>();
         _playerAnimator = GetComponentInChildren<PlayerAnimatorController>();
     }
@@ -41,7 +40,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _playerAnimator.SetAxis(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
+
         if(_helth <= 0)
             Kill();
         
@@ -124,12 +123,16 @@ public class Player : MonoBehaviour
     {
         if (hit.transform != null) {
             var zombie = hit.transform.GetComponent<Zombie>();
+            var burrel = hit.transform.GetComponent<BurrelExplosion>();
             if (zombie != null)
             {
                 zombie.TakeDamage(_damage);
                 if(zombie.GetHealth() <= 0)
                     AddPoint();
             }
+
+            if (burrel != null)
+                burrel.Explosion();
         }
     }
     private void Kill()

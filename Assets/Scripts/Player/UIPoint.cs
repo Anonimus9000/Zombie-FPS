@@ -22,7 +22,9 @@ public class UIPoint : MonoBehaviour
     {
         _countKillPointText.text = _player.GetPoint().ToString();
         if (_player.GetPoint() >= _howMatchNeedKill)
+        {
             _isComplete = true;
+        }
     }
 
     public bool IsComplete()

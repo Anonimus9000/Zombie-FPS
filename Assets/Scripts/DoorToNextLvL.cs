@@ -5,22 +5,31 @@ using UnityEngine;
 
 public class DoorToNextLvL : MonoBehaviour
 {
-    private UIPoint _point;
+    [SerializeField] private float _speedRotate = 1f;
+    [SerializeField] private UIPoint _point;
+    private bool _isOpen = false;
+    private Vector3 _defaultRotation;
+    private Vector3 _openRotation;
 
     private void Start()
     {
-        _point = FindObjectOfType<UIPoint>();
+        _defaultRotation = transform.eulerAngles;
+        _openRotation = new Vector3(_defaultRotation.x, _defaultRotation.y + 90f, _defaultRotation.z);
     }
 
     private void Update()
     {
-        if(_point.IsComplete())
+        if(_point.IsComplete() && !_isOpen)
             OpenDoor();
+        
+        if (transform.rotation.y >= 90f)
+            _isOpen = true;
+        if(_isOpen)
+            Debug.Log("door is open");
     }
 
     public void OpenDoor()
     {
-        var openRotation = new Quaternion(0, 90, 0, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, openRotation, 1);
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, _openRotation, Time.deltaTime * _speedRotate);
     }
 }

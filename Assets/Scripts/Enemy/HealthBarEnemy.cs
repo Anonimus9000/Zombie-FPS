@@ -29,7 +29,6 @@ public class HealthBarEnemy : MonoBehaviour
             
             _preHealth = _health;
         }
-        
     }
 
     private void ChangeHealthBar()

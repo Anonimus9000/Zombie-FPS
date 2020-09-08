@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidbody;
     private PlayerAnimatorController _playerAnimator;
     private AimCursor _aim;
+    private PlayerAudio _playerAudio;
     private bool _isCanAttack = true;
     private int _countPointKill;
 
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
+        _playerAudio = GetComponentInChildren<PlayerAudio>();
         _rigidbody = GetComponent<Rigidbody>();
         _aim = FindObjectOfType<AimCursor>();
         _playerAnimator = GetComponentInChildren<PlayerAnimatorController>();
@@ -95,7 +97,7 @@ public class Player : MonoBehaviour
         if (_isCanAttack)
         {
             _playerAnimator.Shoot();
-            
+            _playerAudio.StartAudioShot();
             Shot();
             
             _isCanAttack = false;
@@ -115,7 +117,9 @@ public class Player : MonoBehaviour
             to = new Vector3(hit.point.x, _shot.GetGunBarrelPosition().y, hit.point.z);
         else
             to = _shot.GetGunBarrelPosition() + direction * 100;
+        
         SetDamageFromShot(hit);
+        
         _shot.Show(to);
     }
 

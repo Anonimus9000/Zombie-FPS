@@ -18,6 +18,9 @@ public class Zombie : Enemy
     
     private void Start()
     {
+        if (player == null)
+            player = FindObjectOfType<Player>();
+        
         _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();

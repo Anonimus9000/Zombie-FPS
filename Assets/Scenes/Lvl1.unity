@@ -2652,8 +2652,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b73530f5cb7444bb57b779e41ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _period: 100
+  _period: 30
   _enemy: {fileID: 6107705101924176458, guid: d84f76be09d56ed4389abff0438ed7f7, type: 3}
+  _sumOfSpawn: 2
 --- !u!1 &453648454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,8 +5063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b73530f5cb7444bb57b779e41ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _period: 100
+  _period: 30
   _enemy: {fileID: 6107705101924176458, guid: d84f76be09d56ed4389abff0438ed7f7, type: 3}
+  _sumOfSpawn: 2
 --- !u!1 &1039009301
 GameObject:
   m_ObjectHideFlags: 0
@@ -8052,8 +8054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b73530f5cb7444bb57b779e41ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _period: 100
+  _period: 30
   _enemy: {fileID: 6107705101924176458, guid: d84f76be09d56ed4389abff0438ed7f7, type: 3}
+  _sumOfSpawn: 2
 --- !u!1001 &1759654917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8924,8 +8927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b73530f5cb7444bb57b779e41ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _period: 100
+  _period: 30
   _enemy: {fileID: 6107705101924176458, guid: d84f76be09d56ed4389abff0438ed7f7, type: 3}
+  _sumOfSpawn: 2
 --- !u!114 &1987161423 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1647976732560889378, guid: a1ee4b88f3ff3a54f9161c2afc43a016, type: 3}
@@ -10298,7 +10302,11 @@ PrefabInstance:
       objectReference: {fileID: 6107705101924176458, guid: d84f76be09d56ed4389abff0438ed7f7, type: 3}
     - target: {fileID: 7131533166652488044, guid: 29d9b942fd5cb4940a7f88cb638c7d2e, type: 3}
       propertyPath: _period
-      value: 100
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131533166652488044, guid: 29d9b942fd5cb4940a7f88cb638c7d2e, type: 3}
+      propertyPath: _sumOfSpawn
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7131533166652488046, guid: 29d9b942fd5cb4940a7f88cb638c7d2e, type: 3}
       propertyPath: m_Name
@@ -10571,6 +10579,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1987161423}
+    - target: {fileID: 9075293162294014481, guid: 5cc6d2dd189a51441b4b618aae6c509f, type: 3}
+      propertyPath: _howMatchNeedKill
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9075293162294014486, guid: 5cc6d2dd189a51441b4b618aae6c509f, type: 3}
       propertyPath: m_Name
       value: Score
